@@ -2,20 +2,24 @@ package com.ll;
 
 public class WiseSaying {
     private int number;
-    private String wiseSaying;
+    private String wiseSay;
     private String name;
-    WiseSaying(int number, String wiseSaying, String name){
+
+    WiseSaying(int number, String wiseSay, String name) {
         this.number = number;
-        this.wiseSaying = wiseSaying;
+        this.wiseSay = wiseSay;
         this.name = name;
     }
-    public int getNumber(){
-        return number;
+
+    public int getNumber() {
+        return this.number;
     }
-    public String getWiseSaying(){
-        return wiseSaying;
+
+    public String getWiseSay() {
+        return this.wiseSay;
     }
-    public String getName(){
-        return name;
+
+    public String getName() {
+        return this.name;
     }
 }
