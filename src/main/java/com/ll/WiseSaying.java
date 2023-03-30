@@ -5,21 +5,22 @@ public class WiseSaying {
     private String wiseSay;
     private String name;
 
-    WiseSaying(int number, String wiseSay, String name) {
+    public WiseSaying(int number, String wiseSay, String name) {
         this.number = number;
         this.wiseSay = wiseSay;
         this.name = name;
     }
 
     public int getNumber() {
-        return this.number;
+        return number;
     }
 
     public String getWiseSay() {
-        return this.wiseSay;
+        return wiseSay;
     }
 
     public String getName() {
-        return this.name;
+        return name;
     }
+
 }
