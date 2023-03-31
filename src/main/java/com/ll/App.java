@@ -27,20 +27,20 @@ public class App {
             } else if (command.equals("목록")) {
                 wiseSayingController.list();
             } else if (command.startsWith("삭제")){ // startsWith 진입부에 삭제가 잇으면 시작되라?
-                String[] commandBits = command.split("\\?",2); //"[0] 삭제 / ? / [1] id =1 "
+                String[] commandBits = command.split("\\?",2); //["삭제","id =1 & id =2"], 가운데 ?
 
-                String acctionCode = commandBits[0];
+                String actionCode = commandBits[0]; //actionCode = "삭제"
 
-                String[] paramsBits = commandBits[1].split("&");
+                String[] paramsBits = commandBits[1].split("&"); // ["id = 1" , "id = 2"] , 가운데 &
 
                 Map<String,String> params = new HashMap<>();
 
                 for(String paramsStr : paramsBits){
-                    String[] paramsStrBits = paramsStr.split("=",2);
-                    String key = paramsStrBits[0];
-                    String value = paramsStrBits[1];
+                    String[] paramsStrBits = paramsStr.split("=",2); // ["id" , "1"], 가운데 =
+                    String key = paramsStrBits[0];  //key  = id
+                    String value = paramsStrBits[1]; //value = 1
                     System.out.printf("키 : %s 값 : %s\n", key,value);
-                    params.put(key,value);
+                    params.put(key,value); //["id" , "1"]
 
                 }
                 wiseSayingController.remove();
