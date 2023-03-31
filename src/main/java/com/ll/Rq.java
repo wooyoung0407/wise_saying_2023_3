@@ -9,10 +9,10 @@ public class Rq {
     public Rq(String command) {
         String[] commandBits = command.split("\\?", 2); //["삭제","id =1 & id =2"], 가운데 ?
 
-        String actionCode = commandBits[0]; //actionCode = "삭제"
+        this.actionCode = commandBits[0]; //actionCode = "삭제"
+        if(commandBits.length == 1)return;
 
         String[] paramsBits = commandBits[1].split("&"); // ["id = 1" , "id = 2"] , 가운데 &
-        if(commandBits.length == 1)return;
         params = new HashMap<>();
 
         for (String paramsStr : paramsBits) {
