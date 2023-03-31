@@ -1,6 +1,7 @@
 package com.ll.wiseSaying.controller;
 
 import com.ll.Container;
+import com.ll.Rq;
 import com.ll.WiseSaying;
 
 import java.util.ArrayList;
@@ -43,7 +44,7 @@ public class WiseSayingController {
         }
     }
 
-    public void remove() {
+    public void remove(Rq rq) {
 
     }
 }
