@@ -42,4 +42,8 @@ public class WiseSayingController {
             System.out.printf("%d / %s / %s\n", wiseSaying.getNumber(), wiseSaying.getName(), wiseSaying.getWiseSay());
         }
     }
+
+    public void remove() {
+
+    }
 }
