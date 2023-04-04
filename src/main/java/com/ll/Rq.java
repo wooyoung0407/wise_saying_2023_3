@@ -3,22 +3,24 @@ package com.ll;
 import java.util.HashMap;
 import java.util.Map;
 
+
 public class Rq {
-    String actionCode;
-    Map<String, String> params;
+    private String actionCode;
+    private Map<String, String> params;
+
     public Rq(String command) {
         String[] commandBits = command.split("\\?", 2); //["삭제","id =1 & id =2"], 가운데 ?
+        actionCode = commandBits[0]; //actionCode = "삭제"
 
-        this.actionCode = commandBits[0]; //actionCode = "삭제"
-        if(commandBits.length == 1)return;
-
-        String[] paramsBits = commandBits[1].split("&"); // ["id = 1" , "id = 2"] , 가운데 &
         params = new HashMap<>();
+        if (commandBits.length == 1) return;
+        String[] paramsBits = commandBits[1].split("&"); // ["id = 1" , "id = 2"] , 가운데 &
+
 
         for (String paramsStr : paramsBits) {
             String[] paramsStrBits = paramsStr.split("=", 2); // ["id" , "1"], 가운데 =
 
-            if(paramsBits.length==1) continue;
+            if (paramsStrBits.length == 1) continue;
 
             String key = paramsStrBits[0];  //key  = id
             String value = paramsStrBits[1]; //value = 1
@@ -34,5 +36,12 @@ public class Rq {
     public String getParams(String name) {
 
         return params.get(name);
+    }
+    public int getIntParam(String name, int defaultValue){
+        try{
+            return Integer.parseInt(getParams(name));
+        }catch (NumberFormatException e){
+        }
+        return defaultValue;
     }
 }

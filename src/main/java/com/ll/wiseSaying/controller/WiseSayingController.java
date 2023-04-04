@@ -45,14 +45,34 @@ public class WiseSayingController {
     }
 
     public void remove(Rq rq) {
-        int id = -1; //null 값이 불가능해서 -1값 넣어준것
+//        int id = -1; //null 값이 불가능해서 -1값 넣어준것
+//        try{
+//            id = Integer.parseInt(rq.getParams("id"));
+//        }catch (NumberFormatException e){
+//            System.out.println("정수를 입력해 주세요");
+//            return;
+//        }
+        int id = rq.getIntParam("id",-1);
 
-        try{
-            id = Integer.parseInt(rq.getParams("id"));
-        }catch (NumberFormatException e){
-            System.out.println("정수를 입력해 주세요");
+        if(id == -1){
+            System.out.println("정수를 입력하세요");
             return;
         }
+        WiseSaying wiseSaying = findById(id);
+
+        if(wiseSaying == null){
+            System.out.printf("%d번 명언이 존재하지않습니다.\n",id);
+            return;
+        }
+        wiseSayings.remove(wiseSaying);
         System.out.printf("%d 명언이 삭제되었습니다.\n",id);
+    }
+    private WiseSaying findById(int id){
+        for(WiseSaying wiseSaying : wiseSayings){
+            if(wiseSaying.getNumber() == id){
+               return wiseSaying;
+            }
+        }
+        return null;
     }
 }
