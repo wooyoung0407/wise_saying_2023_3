@@ -23,4 +23,11 @@ public class WiseSaying {
         return name;
     }
 
+    public void setWiseSay(String wiseSay) {
+        this.wiseSay = wiseSay;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 }
