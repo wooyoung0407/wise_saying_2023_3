@@ -16,7 +16,7 @@ public class App {
 
         while (true) {
             System.out.println("명령)");
-            String command = Container.getScanner().nextLine().trim();
+            String command = Container.getScanner().nextLine().trim(); //sc 변수가 아닌 Container.get를 사용해서 넣어준다.
             Rq rq = new Rq(command);
 
             switch (rq.getActionCode()) {

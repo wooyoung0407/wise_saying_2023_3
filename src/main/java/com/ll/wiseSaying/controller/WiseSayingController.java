@@ -45,6 +45,14 @@ public class WiseSayingController {
     }
 
     public void remove(Rq rq) {
+        int id = -1; //null 값이 불가능해서 -1값 넣어준것
 
+        try{
+            id = Integer.parseInt(rq.getParams("id"));
+        }catch (NumberFormatException e){
+            System.out.println("정수를 입력해 주세요");
+            return;
+        }
+        System.out.printf("%d 명언이 삭제되었습니다.\n",id);
     }
 }

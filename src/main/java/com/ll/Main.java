@@ -9,6 +9,6 @@ public class Main {
 
         new App().run();
 
-        Container.close();
+        Container.close(); // Scanner 클래스의 init과 close
     }
 }

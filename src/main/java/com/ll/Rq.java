@@ -17,13 +17,14 @@ public class Rq {
 
         for (String paramsStr : paramsBits) {
             String[] paramsStrBits = paramsStr.split("=", 2); // ["id" , "1"], 가운데 =
+
+            if(paramsBits.length==1) continue;
+
             String key = paramsStrBits[0];  //key  = id
             String value = paramsStrBits[1]; //value = 1
-            System.out.printf("키 : %s 값 : %s\n", key, value);
-            params.put(key, value); //["id" , "1"]
-
+//            System.out.printf("키 : %s 값 : %s\n", key, value);
+            params.put(key, value); // ["id" , "1"]
         }
-
     }
 
     public String getActionCode() {
